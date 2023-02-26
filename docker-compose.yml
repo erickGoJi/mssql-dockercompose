@@ -1,12 +1,18 @@
-version: '3.4'
-
+version: "3.9"
 services:
-  sqlserver:
-    image: "mcr.microsoft.com/mssql/server:2022-latest"
+  sql-server-db:
     container_name: sqlserver
+    image: mcr.microsoft.com/mssql/server:latest
     ports:
-      - 8080:80
+      - "1439:1433"
     environment:
       SA_PASSWORD: "beDjhD6u"
       ACCEPT_EULA: "Y"
       MSSQL_PID: Express
+    volumes:
+      - sqlvolume:/var/opt/mssql
+ 
+# ... volumes section
+volumes:
+  sqlvolume:
+    driver: local
