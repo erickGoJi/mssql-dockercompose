@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    container_name: sqlserver
+    ports:
+      - 8080:80
+    environment:
+      SA_PASSWORD: "beDjhD6u"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Express
